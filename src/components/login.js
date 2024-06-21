@@ -1,29 +1,26 @@
-import { signInWithEmailAndPassword } from "firebase/auth"; // Import signInWithEmailAndPassword
+import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
-import { useAuth } from "./AuthContext"; // Import useAuth hook from AuthContext
+import { useAuth } from "./AuthContext";
 import { toast } from "react-toastify";
 import SignInwithGoogle from "./signInWIthGoogle";
-import { auth } from "./firebase"; // Import auth from your firebase configuration file
-// import ForgotPassword from "./forgotPassword";
+import { auth } from "./firebase";
 
 function Login() {
-  const { setUser } = useAuth(); // Destructure setUser from useAuth
-
+  const { setUser } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailAndPassword(auth, email, password); // Use auth object for signInWithEmailAndPassword
+      await signInWithEmailAndPassword(auth, email, password);
       console.log("User logged in Successfully");
-      setUser(auth.currentUser); // Update user state using setUser
+      setUser(auth.currentUser); // Set user in AuthContext
       toast.success("User logged in Successfully", {
         position: "top-center",
       });
     } catch (error) {
       console.log(error.message);
-
       toast.error(error.message, {
         position: "bottom-center",
       });
@@ -33,7 +30,6 @@ function Login() {
   return (
     <form onSubmit={handleSubmit}>
       <h3>Login</h3>
-
       <div className="mb-3">
         <label>Email address</label>
         <input
@@ -44,7 +40,6 @@ function Login() {
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
-
       <div className="mb-3">
         <label>Password</label>
         <input
@@ -55,7 +50,6 @@ function Login() {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-
       <div className="d-grid">
         <button type="submit" className="btn btn-primary">
           Submit
@@ -64,8 +58,11 @@ function Login() {
       <p className="forgot-password text-right">
         Forgot password <a href="/forgot">Send reset link</a>
       </p>
+      <p className="forgot-password text-right">
+        login with mobile <a href="/otp">Send OTP</a>
+      </p>
       <SignInwithGoogle />
-      <p className="forgot-password ">
+      <p className="forgot-password">
         No Account? <a href="/register">Register</a>
       </p>
     </form>

@@ -19,10 +19,10 @@ function SignInwithGoogle() {
           photo: user.photoURL,
           lastName: "",
         });
-        toast.success("User logged in Successfully", {
-          position: "top-center",
-        });
-        navigate("/profile");
+        // toast.success("User logged in Successfully", {
+        //   position: "top-center",
+        // });
+        navigate("/landing");
       }
     }).catch(error => {
       console.error("Error during Google login:", error.message);

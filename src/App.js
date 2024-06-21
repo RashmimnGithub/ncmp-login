@@ -13,11 +13,17 @@ import SignUp from "./components/register";
 import ForgotPassword from "./components/forgotPassword";
 import OTPVerification from "./components/otp";
 import Profile from "./components/profile";
-import { AuthProvider } from './components/AuthContext'; // Ensure useAuth is removed
+import LandingPage from "./components/LandingPage";
+import { AuthProvider, useAuth } from './components/AuthContext'; // Ensure useAuth is removed
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { auth } from "./components/firebase";
+
+const PrivateRoute = ({ children }) => {
+  const { user } = useAuth();
+  return user ? children : <Navigate to="/login" />;
+};
 
 function App() {
   const [user, setUser] = useState(null);
@@ -38,19 +44,21 @@ function App() {
           <div className="auth-wrapper">
             <div className="auth-inner">
               <Routes>
-                <Route
-                  path="/"
-                  element={user ? <Navigate to="/profile" /> : <Navigate to="/login" />}
-                />
+                {/* <Route path="/" element={user ? <Navigate to="/profile" /> : <Navigate to="/login" />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<SignUp />} />
-                <Route
-                  path="/profile"
-                  element={user ? <Profile /> : <Navigate to="/login" />}
-                  // element={<Profile />}
-                />
+                <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" />} />
                 <Route path="/forgot" element={<ForgotPassword />} />
                 <Route path="/otp" element={<OTPVerification />} />
+                <Route path="/landing" element={<PrivateRoute><LandingPage /></PrivateRoute>} /> */}
+                <Route path="/" element={user ? <Navigate to="/landing" /> : <Navigate to="/login" />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<SignUp />} />
+                <Route path="/forgot" element={<ForgotPassword />} />
+                <Route path="/otp" element={<OTPVerification />} />
+                
+                <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
+                <Route path="/landing" element={<PrivateRoute><LandingPage /></PrivateRoute>} />
               </Routes>
               <ToastContainer />
             </div>

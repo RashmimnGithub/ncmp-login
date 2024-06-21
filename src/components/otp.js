@@ -1,17 +1,18 @@
-import { auth, db } from "./firebase"; // Adjust the import path as necessary
-import { collection, query, where, getDocs } from "firebase/firestore";
+// otp.js
+import { auth, db } from "./firebase"; 
+import { collection, query, where, getDocs, setDoc, doc } from "firebase/firestore";
 import React, { useState } from "react";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import { Button, Card, CardContent, TextField, Typography } from '@mui/material';
 import { useNavigate } from "react-router-dom";
-import { useAuth } from './AuthContext'; // Import the AuthContext hook
+import { useAuth } from './AuthContext'; 
 
 const OTPVerification = () => {
   const [phone, setPhone] = useState("+91");
   const [hasFilled, setHasFilled] = useState(false);
   const [otp, setOtp] = useState("");
-  const { setUser } = useAuth(); // Use the setUser function from AuthContext
-  const navigate = useNavigate(); // Use the navigate function from react-router-dom
+  const { setUser } = useAuth(); 
+  const navigate = useNavigate();
 
   const generateRecaptcha = () => {
     window.recaptchaVerifier = new RecaptchaVerifier(auth, "recaptcha", {
@@ -26,8 +27,8 @@ const OTPVerification = () => {
     try {
       const q = query(collection(db, 'Users'), where('phoneNumber', '==', phoneNumber));
       const querySnapshot = await getDocs(q);
-      console.log('Query snapshot:', querySnapshot.docs); // Log the query snapshot
-      return querySnapshot.docs.length > 0 ? querySnapshot.docs[0].data() : null; // Return user data if found, else null
+      console.log('Query snapshot:', querySnapshot.docs);
+      return querySnapshot.docs.length > 0 ? querySnapshot.docs[0].data() : null;
     } catch (error) {
       console.error('Error checking user:', error);
       return null;
@@ -47,7 +48,6 @@ const OTPVerification = () => {
     let appVerifier = window.recaptchaVerifier;
     signInWithPhoneNumber(auth, phone, appVerifier)
       .then((confirmationResult) => {
-        // SMS sent successfully
         window.confirmationResult = confirmationResult;
       })
       .catch((error) => {
@@ -60,21 +60,32 @@ const OTPVerification = () => {
     setOtp(otp);
 
     if (otp.length === 6) {
-      // Verify OTP
       let confirmationResult = window.confirmationResult;
       confirmationResult
         .confirm(otp)
-        .then((result) => {
-          // User signed in successfully
+        .then(async (result) => {
           let user = result.user;
           console.log("User signed in successfully:", user);
           alert("User signed in successfully");
-          // Update user state and redirect to profile
-          setUser(user); // Update the user state in AuthContext
-          navigate("/profile"); // Redirect to the profile page
+
+          // Save user data to Firestore
+          const userData = {
+            phoneNumber: user.phoneNumber,
+            uid: user.uid,
+            // Add any other fields you need to store
+          };
+
+          try {
+            await setDoc(doc(db, "Users", user.uid), userData);
+            console.log("User data saved successfully to Firestore");
+          } catch (error) {
+            console.error("Error saving user data:", error);
+          }
+
+          setUser(user); 
+          navigate("/landing"); // Redirect to the landing page
         })
         .catch((error) => {
-          // Error: User couldn't sign in (bad verification code)
           console.error("Error verifying OTP:", error);
           alert("Error verifying OTP: " + error.message);
         });

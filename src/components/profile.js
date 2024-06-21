@@ -1,38 +1,41 @@
 import React, { useEffect, useState } from "react";
 import { auth, db } from "./firebase";
 import { doc, getDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { useAuth } from './AuthContext';
 
 function Profile() {
+  const { user } = useAuth(); // Use user state from AuthContext
   const [userDetails, setUserDetails] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged(async (user) => {
+    const fetchUserData = async () => {
       if (user) {
-        const docRef = doc(db, "Users", user.uid);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          setUserDetails(docSnap.data());
-          console.log(docSnap.data());
-        } else {
-          console.log("User data not found");
+        try {
+          const docRef = doc(db, "Users", user.uid);
+          const docSnap = await getDoc(docRef);
+          if (docSnap.exists()) {
+            setUserDetails(docSnap.data());
+            console.log("User data:", docSnap.data());
+          } else {
+            console.log("No such document!");
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
         }
       } else {
         console.log("User not logged in");
-        navigate("/login");
       }
-    });
+    };
 
-    // Cleanup subscription on unmount
-    return () => unsubscribe();
-  }, [navigate]);
+    fetchUserData();
+  }, [user]); // Trigger effect when user changes
 
   async function handleLogout() {
     try {
       await auth.signOut();
       console.log("User logged out successfully!");
-      navigate("/login"); // Use navigate to redirect
+      // Redirect or navigate to login page after logout
+      // You can use React Router's useNavigate hook for navigation
     } catch (error) {
       console.error("Error logging out:", error.message);
     }
@@ -44,7 +47,7 @@ function Profile() {
         <>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <img
-              src={userDetails.photo}
+              src={userDetails.photo} // Adjust based on your Firestore schema
               width={"40%"}
               style={{ borderRadius: "50%" }}
               alt="User"
@@ -55,6 +58,7 @@ function Profile() {
             <p>First Name: {userDetails.firstName}</p>
             <p>Email: {userDetails.email}</p>
             <p>Phone Number: {userDetails.phoneNumber}</p>
+            {/* Add other fields as needed */}
           </div>
           <button className="btn btn-primary" onClick={handleLogout}>
             Logout
