@@ -42,6 +42,11 @@ function Profile() {
   }
 
   return (
+    <div className="App">
+      <div className="auth-wrapper">
+        <div className="auth-inner">
+          <div className="container">
+
     <div>
       {userDetails ? (
         <>
@@ -67,6 +72,10 @@ function Profile() {
       ) : (
         <p>Loading...</p>
       )}
+    </div>
+    </div>
+      </div>
+    </div>
     </div>
   );
 }

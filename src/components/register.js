@@ -60,6 +60,11 @@ function Register() {
   };
 
   return (
+    <div className="App">
+      <div className="auth-wrapper">
+        <div className="auth-inner">
+          <div className="container">
+          
     <form onSubmit={handleRegister}>
       <h3>Sign Up</h3>
 
@@ -143,6 +148,10 @@ function Register() {
         Already registered <a href="/login">Login</a>
       </p>
     </form>
+    </div>
+      </div>
+    </div>
+    </div>
   );
 }
 

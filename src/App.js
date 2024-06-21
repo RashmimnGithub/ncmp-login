@@ -40,30 +40,19 @@ function App() {
   return (
     <AuthProvider value={{ user, setUser }}> {/* Provide user and setUser */}
       <Router>
-        <div className="App">
-          <div className="auth-wrapper">
-            <div className="auth-inner">
+        
               <Routes>
-                {/* <Route path="/" element={user ? <Navigate to="/profile" /> : <Navigate to="/login" />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<SignUp />} />
-                <Route path="/profile" element={user ? <Profile /> : <Navigate to="/login" />} />
-                <Route path="/forgot" element={<ForgotPassword />} />
-                <Route path="/otp" element={<OTPVerification />} />
-                <Route path="/landing" element={<PrivateRoute><LandingPage /></PrivateRoute>} /> */}
                 <Route path="/" element={user ? <Navigate to="/landing" /> : <Navigate to="/login" />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<SignUp />} />
                 <Route path="/forgot" element={<ForgotPassword />} />
                 <Route path="/otp" element={<OTPVerification />} />
-                
+
                 <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
                 <Route path="/landing" element={<PrivateRoute><LandingPage /></PrivateRoute>} />
               </Routes>
               <ToastContainer />
-            </div>
-          </div>
-        </div>
+            
       </Router>
     </AuthProvider>
   );

@@ -66,7 +66,7 @@ const OTPVerification = () => {
         .then(async (result) => {
           let user = result.user;
           console.log("User signed in successfully:", user);
-          alert("User signed in successfully");
+          // alert("User signed in successfully");
 
           // Save user data to Firestore
           const userData = {
@@ -87,12 +87,17 @@ const OTPVerification = () => {
         })
         .catch((error) => {
           console.error("Error verifying OTP:", error);
-          alert("Error verifying OTP: " + error.message);
+          // alert("Error verifying OTP: " + error.message);
         });
     }
   };
 
   return (
+    <div className="App">
+      <div className="auth-wrapper">
+        <div className="auth-inner">
+          <div className="container">
+
     <div className="app__container">
       <Card sx={{ width: "300px" }}>
         <CardContent sx={{ display: "flex", alignItems: "center", flexDirection: "column" }}>
@@ -126,6 +131,10 @@ const OTPVerification = () => {
         </CardContent>
       </Card>
       <div id="recaptcha"></div>
+    </div>
+    </div>
+      </div>
+    </div>
     </div>
   );
 };

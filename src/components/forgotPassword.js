@@ -26,29 +26,35 @@ function ForgotPassword() {
   };
 
   return (
-    <div className="container">
-      <h3>Forgot Password!!</h3>
-      <p>Enter your email address and we'll send you a link to reset your password.</p>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="email">Email address</label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            placeholder="Enter email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+    <div className="App">
+      <div className="auth-wrapper">
+        <div className="auth-inner">
+          <div className="container">
+            <h3>Forgot Password!!</h3>
+            <p>Enter your email address and we'll send you a link to reset your password.</p>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-3">
+                <label htmlFor="email">Email address</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  placeholder="Enter email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <button type="submit" className="btn btn-primary">
+                Send Reset Link
+              </button>
+            </form>
+            <p className="mt-3">
+              Back to Login? <Link to="/login">Click Here</Link>
+            </p>
+          </div>
         </div>
-        <button type="submit" className="btn btn-primary">
-          Send Reset Link
-        </button>
-      </form>
-      <p className="mt-3">
-        Back to Login? <Link to="/login">Click Here</Link>
-      </p>
+      </div>
     </div>
   );
 }
