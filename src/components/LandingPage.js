@@ -28,12 +28,14 @@ const LandingPage = () => {
       <div className="buttons-container">
         {["/url1", "/url2", "/url3", "/url4", "/url5", "/url6"].map((path, index) => (
           <div key={index} className="button-wrapper">
-            <button onClick={() => handleNavigation(path)}>Button {index + 1}</button>
+            <h4>Cloud</h4>
+            
             <p>In cloud computing, you pay to access a shared pool of resources hosted on 
                 remote servers managed by service providers. This eliminates the need for 
                 self-managing physical resources, and you only pay for what you use. Cloud 
                 platforms connect users via the internet, facilitating secure data exchange. 
                 Deployment models include public, private, and hybrid clouds.</p>
+            <button onClick={() => handleNavigation(path)}>Button {index + 1}</button>
           </div>
         ))}
       </div>
