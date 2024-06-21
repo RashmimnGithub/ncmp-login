@@ -13,15 +13,13 @@
 } */
 
 body, html{
-  background: url("./yqgzPwOk.jpg") no-repeat fixed ;
   height: 100%;
-    margin: 15px;
-    display: flex;
-    justify-content: center;    
-    align-items: center;
-    /* background-color: #f0f0f0;  Background color for visibility */
-    padding: 10px 20px;    
-    background-size: 150px;
+  margin: 1px;
+  display: flex;
+  justify-content: center;    
+  align-items: center;
+  padding: 10px 10px;    
+  background-size: 150px;
 }
 
 h1,

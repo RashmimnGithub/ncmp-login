@@ -24,6 +24,7 @@ const LandingPage = () => {
     <div className="landing-page-container">
       <button className="logout-button" onClick={handleLogout}>Logout</button>
       <h1>Welcome to the Netcon</h1>
+      <br></br>
       <div className="buttons-container">
         {["/url1", "/url2", "/url3", "/url4", "/url5", "/url6"].map((path, index) => (
           <div key={index} className="button-wrapper">
@@ -32,7 +33,7 @@ const LandingPage = () => {
                 remote servers managed by service providers. This eliminates the need for 
                 self-managing physical resources, and you only pay for what you use. Cloud 
                 platforms connect users via the internet, facilitating secure data exchange. 
-                Deployment models include public, private, and hybrid clouds .</p>
+                Deployment models include public, private, and hybrid clouds.</p>
           </div>
         ))}
       </div>

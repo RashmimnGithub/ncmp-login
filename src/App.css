@@ -1,10 +1,13 @@
 
 
 .App {
+  background: url("./yqgzPwOk.jpg") no-repeat  ;
+  background-size: 12%;
   text-align: center;
 }
 
 .App-logo {
+  
   height: 40vmin;
   pointer-events: none;
 }
