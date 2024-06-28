@@ -61,6 +61,7 @@ function Register() {
 
   return (
     <div className="App">
+      <h1>Welcome to Netcon CMP</h1>
       <div className="auth-wrapper">
         <div className="auth-inner">
           <div className="container">
@@ -145,7 +146,7 @@ function Register() {
         </button>
       </div>
       <p className="forgot-password text-right">
-        Already registered <a href="/login">Login</a>
+        Already registered? <a href="/login">Login</a>
       </p>
     </form>
     </div>

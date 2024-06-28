@@ -4,11 +4,13 @@ import { useAuth } from "./AuthContext";
 import { toast } from "react-toastify";
 import SignInwithGoogle from "./signInWIthGoogle";
 import { auth } from "./firebase";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
   const { setUser } = useAuth();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,6 +21,7 @@ function Login() {
       // toast.success("User logged in Successfully", {
       //   position: "top-center",
       // });
+      navigate("/landing");
     } catch (error) {
       console.log(error.message);
       toast.error(error.message, {
@@ -28,13 +31,15 @@ function Login() {
   };
 
   return (
-    <div className="App">
+    
+      <div className="App">
       <div className="auth-wrapper">
+        <h1>Welcome to Netcon CMP</h1>
         <div className="auth-inner">
+          <h3>Login</h3>
           <div className="container">
-
             <form onSubmit={handleSubmit}>
-              <h3>Login</h3>
+              {/* <h3>Login</h3> */}
               <div className="mb-3">
                 <label>Email address</label>
                 <input
@@ -75,6 +80,7 @@ function Login() {
         </div>
       </div>
     </div >
+
   );
 }
 
