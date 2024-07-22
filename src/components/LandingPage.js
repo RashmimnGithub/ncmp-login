@@ -26,12 +26,12 @@ const LandingPage = () => {
   
   const buttonData = [
     {
-      path: "https://www.zoho.com/desk",
+      path: "https://support.netcon.in:8448/",
       title: "ITSM",
       content: "Cloud help desk software: Zoho Desk is a cloud help desk software that helps you support your customers, no matter how they reach out to you, wherever you are, via a single interface."
     },
     {
-      path: "https://www.ansible.com/awx",
+      path: "http://20.197.45.42:32167/#/login",
       title: "Automation",
       content: "AWX makes it possible for users across an organization to share, vet, and manage automation content by means of a simple, powerful, and agentless technical implementation. IT managers can provide guidelines on how automation is applied to individual teams"
     },
@@ -41,7 +41,7 @@ const LandingPage = () => {
       content: "FinOps is an operational framework and cultural practice which maximizes the business value of cloud, enables timely data-driven decision making, and creates financial accountability through collaboration between engineering, finance, and business teams."
     },
     {
-      path: "https://grafana.com/grafana",
+      path: "https://app.powerbi.com/reportEmbed?reportId=6bd19214-faa1-4685-a587-df2e5aca7910&autoAuth=true&ctid=3865b44b-651f-4df8-a0c8-2625494f6198",
       title: "Reporting",
       content: "Grafana is an open-source observability platform for visualizing metrics, logs, and traces collected from your applications. It's a cloud-native solution for quickly assembling data dashboards that let you inspect and analyze your stack"
     },

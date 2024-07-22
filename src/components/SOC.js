@@ -22,7 +22,7 @@ const LandingPage2 = () => {
     {
       path: "https://www.zoho.com/desk",
       title: "Wazu",
-      content: "Cloud help desk software: Zoho Desk is a cloud help desk software that helps you support your customers, no matter how they reach out to you, wherever you are, via a single interface."
+      content: ""
     },
   ];
   

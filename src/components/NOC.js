@@ -20,19 +20,19 @@ const LandingPage1 = () => {
   
   const buttonData = [
     {
-      path: "https://www.zoho.com/desk",
+      path: "https://172.19.2.21:8061/",
       title: "Ops",
-      content: "Cloud help desk software: Zoho Desk is a cloud help desk software that helps you support your customers, no matter how they reach out to you, wherever you are, via a single interface."
+      content: "    "
     },
     {
       path: "https://www.ansible.com/awx",
       title: "Zabbix",
-      content: "AWX makes it possible for users across an organization to share, vet, and manage automation content by means of a simple, powerful, and agentless technical implementation. IT managers can provide guidelines on how automation is applied to individual teams"
+      content: ""
     },
     {
       path: "https://www.economize.cloud",
       title: "Prig",
-      content: "FinOps is an operational framework and cultural practice which maximizes the business value of cloud, enables timely data-driven decision making, and creates financial accountability through collaboration between engineering, finance, and business teams."
+      content: ""
     },
   ];
   
