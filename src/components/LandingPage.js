@@ -46,8 +46,8 @@ const LandingPage = () => {
       content: "Grafana is an open-source observability platform for visualizing metrics, logs, and traces collected from your applications. It's a cloud-native solution for quickly assembling data dashboards that let you inspect and analyze your stack"
     },
     {
-      path: "/url5",
-      title: "Monitoring",
+      path: "/landing1",
+      title: "NoC (Monitoring)",
       content: "Cloud monitoring involves analyzing, tracking, and managing cloud-based services and applications. It provides visibility, automation, and control for monitoring and optimizing website and application performance"
     },
     {
@@ -59,11 +59,6 @@ const LandingPage = () => {
       path: "/url7",
       title: "CMP",
       content: " A Cloud Management Platform (CMP) is a software tool that helps organizations manage and optimize their cloud infrastructure across multiple cloud providers and services. CMPs provide a centralized interface for monitoring, provisioning, deploying, and managing cloud resources, such as virtual machines, containers, storage, and networking"
-    },
-    {
-      path: "/url8",
-      title: "NoC",
-      content: "Cloud Asset Management (CAM) is a crucial practice in today’s digital era. It focuses on managing and tracking resources essential for delivering cloud services. These assets include both tangible elements, such as physical or virtual storage and servers, as well as intangible components like software licenses and undocumented staff knowledge"
     },
     {
       path: "/url9",
@@ -82,7 +77,7 @@ const LandingPage = () => {
           <div key={index} className="button-wrapper">
             <h4>{button.title}</h4>
             <p>{button.content}</p>
-            <button onClick={() => handleNavigation(button.path)}>Button {index + 1}</button>
+            <button onClick={() => handleNavigation(button.path)}>{button.title}</button>
           </div>
         ))}
       </div>
