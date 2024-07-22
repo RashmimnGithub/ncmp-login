@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 // import { auth } from "./firebase";
 import "./landingPage.css";
 
-const LandingPage1 = () => {
+const LandingPage2 = () => {
   const navigate = useNavigate();
 
   const handleBack = () => {
@@ -21,25 +21,15 @@ const LandingPage1 = () => {
   const buttonData = [
     {
       path: "https://www.zoho.com/desk",
-      title: "Ops",
+      title: "Wazu",
       content: "Cloud help desk software: Zoho Desk is a cloud help desk software that helps you support your customers, no matter how they reach out to you, wherever you are, via a single interface."
-    },
-    {
-      path: "https://www.ansible.com/awx",
-      title: "Zabbix",
-      content: "AWX makes it possible for users across an organization to share, vet, and manage automation content by means of a simple, powerful, and agentless technical implementation. IT managers can provide guidelines on how automation is applied to individual teams"
-    },
-    {
-      path: "https://www.economize.cloud",
-      title: "Prig",
-      content: "FinOps is an operational framework and cultural practice which maximizes the business value of cloud, enables timely data-driven decision making, and creates financial accountability through collaboration between engineering, finance, and business teams."
     },
   ];
   
   return (
     <div className="landing-page-container">
       <button className="logout-button" onClick={handleBack}>Back</button>
-      <h1>NOC Management</h1>
+      <h1>SOC Management</h1>
       <br />
       <div className="buttons-container">
         {buttonData.map((button, index) => (
@@ -55,4 +45,4 @@ const LandingPage1 = () => {
   
 };
 
-export default LandingPage1;
+export default LandingPage2;

@@ -16,6 +16,7 @@ import Profile from "./components/profile";
 import LandingPage from "./components/LandingPage";
 import { AuthProvider, useAuth } from './components/AuthContext'; // Ensure useAuth is removed
 import LandingPage1 from "./components/NOC";
+import LandingPage2 from "./components/SOC";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -48,10 +49,10 @@ function App() {
                 <Route path="/register" element={<SignUp />} />
                 <Route path="/forgot" element={<ForgotPassword />} />
                 <Route path="/otp" element={<OTPVerification />} />
-
                 <Route path="/profile" element={<PrivateRoute><Profile /></PrivateRoute>} />
                 <Route path="/landing" element={<PrivateRoute><LandingPage /></PrivateRoute>} />
                 <Route path="/landing1" element={<PrivateRoute><LandingPage1 /></PrivateRoute>} />
+                <Route path="/landing2" element={<PrivateRoute><LandingPage2 /></PrivateRoute>} />
               </Routes>
               <ToastContainer />
             
