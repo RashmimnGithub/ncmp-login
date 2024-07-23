@@ -26,9 +26,14 @@ const LandingPage = () => {
   
   const buttonData = [
     {
+      path: "/noc",
+      title: "NoC (Monitoring)",
+      content: "The Network Operations Center (NOC) is a centralized location where 24/7 monitoring and management of events affecting technology services and infrastructure take place. Originating in the late 1970s by telecommunication service providers, today’s NOCs monitor not only networking equipment but also cloud, power, environmental, and service aspects."
+    },
+    {
       path: "https://support.netcon.in:8448/",
       title: "ITSM",
-      content: "Cloud help desk software: Zoho Desk is a cloud help desk software that helps you support your customers, no matter how they reach out to you, wherever you are, via a single interface."
+      content: "ITSM in cloud refers to IT Service Management solutions that are deployed and delivered through cloud infrastructure. ITSM cloud solutions can simplify the operations, planning, and implementation of IT services for businesses."
     },
     {
       path: "http://20.197.45.42:32167/#/login",
@@ -36,20 +41,20 @@ const LandingPage = () => {
       content: "AWX makes it possible for users across an organization to share, vet, and manage automation content by means of a simple, powerful, and agentless technical implementation. IT managers can provide guidelines on how automation is applied to individual teams"
     },
     {
+      path: "https://app.powerbi.com/reportEmbed?reportId=6bd19214-faa1-4685-a587-df2e5aca7910&autoAuth=true&ctid=3865b44b-651f-4df8-a0c8-2625494f6198",
+      title: "Reporting",
+      content: "Cloud reporting involves collecting, analyzing, and presenting data generated in a cloud environment to derive valuable insights for better decision-making12. It transforms raw data into meaningful charts, graphs, and tables, enabling real-time insights and timely decisions."
+    },
+    {
       path: "https://www.economize.cloud",
       title: "Finops",
       content: "FinOps is an operational framework and cultural practice which maximizes the business value of cloud, enables timely data-driven decision making, and creates financial accountability through collaboration between engineering, finance, and business teams."
     },
     {
-      path: "https://app.powerbi.com/reportEmbed?reportId=6bd19214-faa1-4685-a587-df2e5aca7910&autoAuth=true&ctid=3865b44b-651f-4df8-a0c8-2625494f6198",
-      title: "Reporting",
-      content: "Grafana is an open-source observability platform for visualizing metrics, logs, and traces collected from your applications. It's a cloud-native solution for quickly assembling data dashboards that let you inspect and analyze your stack"
-    },
-    {
-      path: "/landing1",
-      title: "NoC (Monitoring)",
-      content: "Cloud monitoring involves analyzing, tracking, and managing cloud-based services and applications. It provides visibility, automation, and control for monitoring and optimizing website and application performance"
-    },
+      path: "/soc",
+      title: "SoC",
+      content: "A Cloud SOC monitors cloud applications and infrastructure 24/7 to detect vulnerabilities, respond to threats, and prevent attacks. It ensures continuous vigilance over an organization’s IT infrastructure, maintaining security while adhering to compliance requirements."
+    }, 
     {
       path: "/url6",
       title: "Asset Management",
@@ -58,11 +63,6 @@ const LandingPage = () => {
     {
       path: "/url7",
       title: "CMP",
-      content: " A Cloud Management Platform (CMP) is a software tool that helps organizations manage and optimize their cloud infrastructure across multiple cloud providers and services. CMPs provide a centralized interface for monitoring, provisioning, deploying, and managing cloud resources, such as virtual machines, containers, storage, and networking"
-    },
-    {
-      path: "/landing2",
-      title: "SoC",
       content: " A Cloud Management Platform (CMP) is a software tool that helps organizations manage and optimize their cloud infrastructure across multiple cloud providers and services. CMPs provide a centralized interface for monitoring, provisioning, deploying, and managing cloud resources, such as virtual machines, containers, storage, and networking"
     },
   ];
@@ -74,10 +74,10 @@ const LandingPage = () => {
       <br />
       <div className="buttons-container">
         {buttonData.map((button, index) => (
-          <div key={index} className="button-wrapper">
+          <div key={index} className="button-wrapper" onClick={() => handleNavigation(button.path)}>
             <h4>{button.title}</h4>
             <p>{button.content}</p>
-            <button onClick={() => handleNavigation(button.path)}>{button.title}</button>
+            {/* <button onClick={() => handleNavigation(button.path)}>Click here</button> */}
           </div>
         ))}
       </div>
