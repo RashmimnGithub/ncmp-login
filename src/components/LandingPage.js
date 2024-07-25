@@ -41,12 +41,12 @@ const LandingPage = () => {
       content: "AWX makes it possible for users across an organization to share, vet, and manage automation content by means of a simple, powerful, and agentless technical implementation. IT managers can provide guidelines on how automation is applied to individual teams"
     },
     {
-      path: "https://app.powerbi.com/reportEmbed?reportId=6bd19214-faa1-4685-a587-df2e5aca7910&autoAuth=true&ctid=3865b44b-651f-4df8-a0c8-2625494f6198",
+      path: "https://app.powerbi.com/links/G56uML9AUH?ctid=3865b44b-651f-4df8-a0c8-2625494f6198&pbi_source=linkSharea",
       title: "Reporting",
       content: "Cloud reporting involves collecting, analyzing, and presenting data generated in a cloud environment to derive valuable insights for better decision-making12. It transforms raw data into meaningful charts, graphs, and tables, enabling real-time insights and timely decisions."
     },
     {
-      path: "https://www.economize.cloud",
+      path: "/up",
       title: "Finops",
       content: "FinOps is an operational framework and cultural practice which maximizes the business value of cloud, enables timely data-driven decision making, and creates financial accountability through collaboration between engineering, finance, and business teams."
     },
@@ -56,12 +56,12 @@ const LandingPage = () => {
       content: "A Cloud SOC monitors cloud applications and infrastructure 24/7 to detect vulnerabilities, respond to threats, and prevent attacks. It ensures continuous vigilance over an organization’s IT infrastructure, maintaining security while adhering to compliance requirements."
     }, 
     {
-      path: "/url6",
+      path: "/up",
       title: "Asset Management",
       content: "Cloud Asset Management (CAM) is a crucial practice in today’s digital era. It focuses on managing and tracking resources essential for delivering cloud services. These assets include both tangible elements, such as physical or virtual storage and servers, as well as intangible components like software licenses and undocumented staff knowledge"
     },
     {
-      path: "/url7",
+      path: "/up",
       title: "CMP",
       content: " A Cloud Management Platform (CMP) is a software tool that helps organizations manage and optimize their cloud infrastructure across multiple cloud providers and services. CMPs provide a centralized interface for monitoring, provisioning, deploying, and managing cloud resources, such as virtual machines, containers, storage, and networking"
     },

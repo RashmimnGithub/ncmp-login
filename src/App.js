@@ -17,6 +17,7 @@ import LandingPage from "./components/LandingPage";
 import { AuthProvider, useAuth } from './components/AuthContext'; // Ensure useAuth is removed
 import NOC from "./components/NOC";
 import SOC from "./components/SOC";
+import UP from "./components/Underprogress";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -53,6 +54,7 @@ function App() {
                 <Route path="/landing" element={<PrivateRoute><LandingPage /></PrivateRoute>} />
                 <Route path="/noc" element={<PrivateRoute><NOC /></PrivateRoute>} />
                 <Route path="/soc" element={<PrivateRoute><SOC /></PrivateRoute>} />
+                <Route path="/up" element={<PrivateRoute><UP /></PrivateRoute>} />
               </Routes>
               <ToastContainer />
             
