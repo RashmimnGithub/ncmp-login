@@ -22,8 +22,8 @@ const NOC = () => {
   const buttonData = [
     {
       path: "https://172.19.2.21:8061/",
-      title: "Ops",
-      content: "-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------"
+      title: "OpManager",
+      content: "OpManager is a comprehensive network monitoring software that provides real-time visibility into the performance of various network devices, servers, and storage systems."
     },
     {
       path: "https://www.zabbix.com/cloud_monitoring",
@@ -41,7 +41,7 @@ const NOC = () => {
     <div className="landing-page-container">
       {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link> */}
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
-      <button className="back-button" onClick={handleBack}><i class="material-icons">arrow_back</i></button>
+      <button className="back-button" onClick={handleBack}><i class="material-icons">arrow_back</i>Back</button>
       <h1>NOC Management</h1>
       <br />
       <div className="buttons-container">
