@@ -41,7 +41,7 @@ const NOC = () => {
     <div className="landing-page-container">
       {/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link> */}
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
-      <button className="back-button" onClick={handleBack}><i class="material-icons">arrow_back</i>Back</button>
+      <button className="back-button" onClick={handleBack}><i class="material-icons">arrow_back</i> Back</button>
       <h1>NOC Management</h1>
       <br />
       <div className="buttons-container">
