@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth, firestore } from "./firebase";
+import { auth, db } from "./firebase";
 import "./landingPage.css";
 
 const LandingPage = () => {
@@ -88,7 +88,7 @@ const LandingPage = () => {
       try {
         const user = auth.currentUser;
         if (user) {
-          const userDoc = await firestore.collection('users').doc(user.uid).get();
+          const userDoc = await db.collection('users').doc(user.uid).get();
           const userRole = userDoc.data().role;
           setRole(userRole);
 
