@@ -27,7 +27,7 @@ const LandingPage = () => {
   const buttonData = [
     {
       path: "/noc",
-      title: "NoC (Monitoring)",
+      title: "Monitoring",
       content: "The Network Operations Center (NOC) is a centralized location where 24/7 monitoring and management of events affecting technology services and infrastructure take place. Originating in the late 1970s by telecommunication service providers, today’s NOCs monitor not only networking equipment but also cloud, power, environmental, and service aspects."
     },
     {
@@ -64,6 +64,11 @@ const LandingPage = () => {
       path: "/up",
       title: "CMP",
       content: " A Cloud Management Platform (CMP) is a software tool that helps organizations manage and optimize their cloud infrastructure across multiple cloud providers and services. CMPs provide a centralized interface for monitoring, provisioning, deploying, and managing cloud resources, such as virtual machines, containers, storage, and networking"
+    },
+    {
+      path: "/noc",
+      title: "NoC",
+      content: "The Network Operations Center (NOC) is a centralized location where 24/7 monitoring and management of events affecting technology services and infrastructure take place. Originating in the late 1970s by telecommunication service providers, today’s NOCs monitor not only networking equipment but also cloud, power, environmental, and service aspects."
     },
   ];
   
