@@ -25,7 +25,7 @@ const buttonData = [
   },
   {
     path: "https://app.powerbi.com/links/G56uML9AUH?ctid=3865b44b-651f-4df8-a0c8-2625494f6198&pbi_source=linkSharea",
-    title: "Reporting",
+    title: "Dashboard",
     content: "Cloud reporting involves collecting, analyzing, and presenting data generated in a cloud environment to derive valuable insights for better decision-making12. It transforms raw data into meaningful charts, graphs, and tables, enabling real-time insights and timely decisions.",
     department: ["admin"]
   },

@@ -68,9 +68,9 @@ function Login() {
               <p className="forgot-password text-right">
                 Forgot password <a href="/forgot">Send reset link</a>
               </p>
-              <p className="forgot-password text-right">
+              {/* <p className="forgot-password text-right">
                 login with mobile <a href="/otp">Send OTP</a>
-              </p>
+              </p> */}
               <SignInwithGoogle />
               <p className="forgot-password">
                 No Account? <a href="/register">Register</a>
