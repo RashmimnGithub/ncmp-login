@@ -3,15 +3,31 @@ import React, { useState } from "react";
 import { auth, db } from "./firebase";
 import { setDoc, doc } from "firebase/firestore";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [fname, setFname] = useState("");
-  const [lname, setLname] = useState("");
+  const [fullname, setFname] = useState("");
+  // const [lname, setLname] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("+91");
+  const [department, setDepartment] = useState("");
+  
+  const navigate = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      console.log("User registered Successfully");
+      navigate("/login");
+    } catch (error) {
+      console.log(error.message);
+      toast.error(error.message, {
+        position: "bottom-center",
+      });
+    }
+  };
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -41,10 +57,11 @@ function Register() {
       if (user) {
         await setDoc(doc(db, "Users", user.uid), {
           email: user.email,
-          firstName: fname,
-          lastName: lname,
+          fullName: fullname,
+          // lastName: lname,
           phoneNumber: phoneNumber,
-          photo: "",
+          department: department,
+          photo : ""
         });
         console.log("User Registered Successfully!!");
         toast.success("User Registered Successfully!!", {
@@ -59,6 +76,11 @@ function Register() {
     }
   };
 
+  const handleFormSubmit = (e) => {
+    handleRegister(e);
+    handleSubmit(e);
+  };
+
   return (
     <div className="App">
       <h1>Welcome to Netcon CMP</h1>
@@ -66,29 +88,30 @@ function Register() {
         <div className="auth-inner">
           <div className="container">
           
-    <form onSubmit={handleRegister}>
+    <form onSubmit={handleFormSubmit}>
       <h3>Sign Up</h3>
 
       <div className="mb-3">
-        <label>First name</label>
+        <label>Full Name</label>
         <input
           type="text"
           className="form-control"
           placeholder="First name"
-          value={fname}
+          value={fullname}
           onChange={(e) => setFname(e.target.value)}
           required
         />
       </div>
 
       <div className="mb-3">
-        <label>Last name</label>
+        <label>Department</label>
         <input
           type="text"
           className="form-control"
-          placeholder="Last name"
-          value={lname}
-          onChange={(e) => setLname(e.target.value)}
+          placeholder="Enter Department"
+          value={department}
+          onChange={(e) => setDepartment(e.target.value)}
+          required
         />
       </div>
 
