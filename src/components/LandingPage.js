@@ -13,6 +13,7 @@ import monitoring from "../assets/monitoring.jpg";
 // import CMP from "../assets/monitoring.jpg";
 // import NOC from "../assets/monitoring.jpg";
 import userLogo from "../assets/userlogo.png";
+import logo from "../assets/logo.jpg";
 
 const buttonData = [
   {
@@ -102,7 +103,7 @@ const LandingPage = () => {
   const [department, setRole] = useState(null);
   const [filteredButtonData, setFilteredButtonData] = useState([]);
   const [selectedButton, setSelectedButton] = useState(null);
-  const [userInfo, setUserInfo] = useState({ username: "", userID: "", department: "" });
+  const [userInfo, setUserInfo] = useState({ fullName: "", email: "", department: "" });
 
   const handleLogout = async () => {
     try {
@@ -128,8 +129,8 @@ const LandingPage = () => {
             setFilteredButtonData(filteredData);
 
             setUserInfo({
-              username: userDoc.data().username,
-              userID: user.uid,
+              fullName: userDoc.data().fullName,
+              email: user.email,
               department: userRole
             });
           } else {
@@ -154,17 +155,19 @@ const LandingPage = () => {
 
   return (
     <div className="landing-page-container">
-      <button className="logout-button" onClick={handleLogout}>Logout</button>
-      <div className="user-info-container">
-        <img src={userLogo} alt="User Logo" className="user-logo" />
-        <div className="user-info-tooltip">
-          <p>Username: {userInfo.username}</p>
-          <p>UserID: {userInfo.userID}</p>
-          <p>Department: {userInfo.department}</p>
+      <div className="header">
+        <img src={logo} alt="Logo" className="logo" />
+        <h1>Welcome to Netcon</h1>
+        <button className="logout-button" onClick={handleLogout}>Logout</button><br></br>
+        <div className="user-info-container">
+          <img src={userLogo} alt="User Logo" className="user-logo" />
+          <div className="user-info-tooltip">
+            <p>User Name: {userInfo.fullName}</p>
+            <p>Email: {userInfo.email}</p>
+            <p>Department: {userInfo.department}</p>
+          </div>
         </div>
       </div>
-      <h1>Welcome to Netcon</h1>
-      <br />
       <div className="layout-container">
         <div className="buttons-panel">
           {filteredButtonData.map((button, index) => (
@@ -176,9 +179,11 @@ const LandingPage = () => {
         <div className="content-panel">
           {selectedButton ? (
             <>
+              <h2>{selectedButton.title}</h2><br></br>
+              <div className="win"> 
               <img src={selectedButton.image} alt={selectedButton.title} className="content-image" />
-              <h2>{selectedButton.title}</h2>
               <p>{selectedButton.content}</p>
+              </div><br></br>
               <a href={selectedButton.path} target="_blank" rel="noopener noreferrer" className="doc-link">Read More</a>
             </>
           ) : (

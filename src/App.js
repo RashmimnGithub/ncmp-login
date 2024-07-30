@@ -2,11 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+  BrowserRouter as Router, Routes, Route, Navigate, } from "react-router-dom";
 
 import Login from "./components/login";
 import SignUp from "./components/register";
