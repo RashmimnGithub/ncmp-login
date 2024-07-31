@@ -15,7 +15,7 @@
 }
 
 .company-logo {
-  height: 50px;
+  height: 80%;
   width: auto;
   margin: 0px 5px;
   border: none;
@@ -26,20 +26,6 @@
   flex-grow: 1;
   text-align: center;
   margin: 0;
-}
-
-.user-section {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  right: 30px;
-  cursor: pointer;
-}
-
-.user-icon {
-  height: 40px;
-  width: 40px;
-  margin-right: 10px;
 }
 
 .logout-button {
@@ -118,18 +104,33 @@
 }
 
 .back-button {
-  padding: 10px 20px;
+  padding: 7px 15px;
   background-color: #35e75b;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  margin-left: 10px;
 }
 
 .back-button:hover {
   background-color: #29b146;
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+  /* position: absolute; */
+  right: 30px;
+  cursor: pointer;
+  position: relative; /* Change from absolute to relative */
+  margin-left: auto; /* Pushes the user section to the right end */
+}
+
+.user-icon {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
 }
 
 .user-info-tooltip {
@@ -146,7 +147,7 @@
   white-space: nowrap;
 }
 
-.user-section:hover .user-info-tooltip {
+.user-section .user-info-tooltip {
   display: block;
 }
 
@@ -161,4 +162,13 @@
   display: flex;
   flex-direction: row;
   gap: 20px;
+}
+
+.button-wrapper {
+  margin-bottom: 20px; /* Adds spacing between button wrappers */
+  padding: 20px; /* Adds padding inside each button wrapper */
+  background-color: #fff; /* Ensures background color for button wrapper */
+  border: 1px solid #ddd; /* Adds border around button wrapper */
+  border-radius: 4px; /* Adds rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
 }
