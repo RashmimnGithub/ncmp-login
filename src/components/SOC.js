@@ -104,7 +104,7 @@ const SOC = () => {
       </div>
       <br />
       <div className="content">
-        <h2>NOC</h2>
+        <h2>SOC</h2>
         <br />
         {filteredButtonData.map((button, index) => (
           <div key={index} className="button-wrapper">
