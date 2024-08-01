@@ -3,26 +3,17 @@ import { useNavigate } from "react-router-dom";
 import { auth, db } from "./firebase";
 import { doc, getDoc } from "firebase/firestore";
 import "./landingPage.css";
-import monitoring from "../assets/monitoring.jpg";
-// import ITSM from "../assets/monitoring.jpg";
-// import Automation from "../assets/monitoring.jpg";
-// import Dashboard from "../assets/monitoring.jpg";
-// import FinOps from "../assets/monitoring.jpg";
-// import SOC from "../assets/monitoring.jpg";
-// import AssetManagement from "../assets/monitoring.jpg";
-// import CMP from "../assets/monitoring.jpg";
-// import NOC from "../assets/monitoring.jpg";
-import userLogo from "../assets/userlogo.png";
-import logo from "../assets/logo.jpg";
+import companyLogo from "../yqgzPwOk.jpg"; // Update the path to your logo
+import userIcon from "../R.png"; // Update the path to your user icon
+import monitoring from "../yqgzPwOk.jpg";
 
 const buttonData = [
   {
     path: "https://172.19.2.21:8061/",
     title: "Monitoring",
     content: "Monitoring is a process to periodically collect, analyse and use information to actively manage performance, maximise positive impacts and minimise the risk of adverse impacts.",
-    image: monitoring,
-    docLink: "https://example.com/monitoring-doc",
-    department: ["admin"]
+    department: ["admin"],
+    image : monitoring
   },
   {
     path: "https://support.netcon.in:8448/",
@@ -102,8 +93,9 @@ const LandingPage = () => {
   const navigate = useNavigate();
   const [department, setRole] = useState(null);
   const [filteredButtonData, setFilteredButtonData] = useState([]);
-  const [selectedButton, setSelectedButton] = useState(null);
-  const [userInfo, setUserInfo] = useState({ fullName: "", email: "", department: "" });
+  const [selectedService, setSelectedService] = useState(null);
+  const [userInfo, setUserInfo] = useState({ fullName: " ", email: " ", department: " " });
+  const [isTooltipVisible, setTooltipVisible] = useState(false);
 
   const handleLogout = async () => {
     try {
@@ -113,6 +105,14 @@ const LandingPage = () => {
     } catch (error) {
       console.error("Error logging out:", error.message);
     }
+  };
+
+  const handleServiceClick = (service) => {
+    setSelectedService(service);
+  };
+
+  const toggleTooltip = () => {
+    setTooltipVisible(!isTooltipVisible);
   };
 
   useEffect(() => {
@@ -156,38 +156,51 @@ const LandingPage = () => {
   return (
     <div className="landing-page-container">
       <div className="header">
-        <img src={logo} alt="Logo" className="logo" />
-        <h1>Welcome to Netcon</h1>
-        <button className="logout-button" onClick={handleLogout}>Logout</button><br></br>
-        <div className="user-info-container">
-          <img src={userLogo} alt="User Logo" className="user-logo" />
-          <div className="user-info-tooltip">
-            <p>User Name: {userInfo.fullName}</p>
-            <p>Email: {userInfo.email}</p>
-            <p>Department: {userInfo.department}</p>
-          </div>
+        <img src={companyLogo} alt="Company Logo" className="company-logo" />
+        <h1 className="company-name">Netcon Technologies</h1>
+        <div className="user-section" onClick={toggleTooltip}>
+          <img src={userIcon} alt="User Icon" className="user-icon" />
+          {isTooltipVisible && (
+            <div className="user-info-tooltip">
+              <p>{userInfo.fullName}</p>
+              <p>{userInfo.email}</p>
+              <p>{userInfo.department}</p>
+              <button className="logout-button" onClick={handleLogout}>Logout</button>
+            </div>
+          )}
         </div>
       </div>
-      <div className="layout-container">
-        <div className="buttons-panel">
+      <div className="content-container">
+        <div className="sidebar">
           {filteredButtonData.map((button, index) => (
-            <div key={index} className="button-item" onClick={() => handleButtonClick(button)}>
+            <div
+              key={index}
+              className={`sidebar-item ${selectedService === button ? "active" : ""}`}
+              onClick={() => handleServiceClick(button)}>
               {button.title}
             </div>
           ))}
         </div>
-        <div className="content-panel">
-          {selectedButton ? (
+        <div className="content">
+          {selectedService ? (
             <>
-              <h2>{selectedButton.title}</h2><br></br>
-              <div className="win"> 
-              <img src={selectedButton.image} alt={selectedButton.title} className="content-image" />
-              <p>{selectedButton.content}</p>
-              </div><br></br>
-              <a href={selectedButton.path} target="_blank" rel="noopener noreferrer" className="doc-link">Read More</a>
+              <h2>{selectedService.title}</h2>
+              <div className="win">
+              <img src={selectedService.image} alt={selectedService.title} className="content-image" />
+              <p>{selectedService.content}</p>
+              </div>
+              {selectedService.path.startsWith("http") ? (
+                <button onClick={() => window.open(selectedService.path, "_blank")}>
+                  Go to {selectedService.title}
+                </button>
+              ) : (
+                <button onClick={() => navigate(selectedService.path)}>
+                  Go to {selectedService.title}
+                </button>
+              )}
             </>
           ) : (
-            <p>Please select an option from the left panel.</p>
+            <p>Please select a service to see the details.</p>
           )}
         </div>
       </div>
