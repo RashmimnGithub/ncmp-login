@@ -18,6 +18,7 @@ import { AuthProvider, useAuth } from './components/AuthContext'; // Ensure useA
 import NOC from "./components/NOC";
 import SOC from "./components/SOC";
 import UP from "./components/Underprogress";
+import Home from "./components/homepage"
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -55,6 +56,7 @@ function App() {
                 <Route path="/noc" element={<PrivateRoute><NOC /></PrivateRoute>} />
                 <Route path="/soc" element={<PrivateRoute><SOC /></PrivateRoute>} />
                 <Route path="/up" element={<PrivateRoute><UP /></PrivateRoute>} />
+                <Route path="/homepage" element={<PrivateRoute><Home /></PrivateRoute>} />
               </Routes>
               <ToastContainer />
             
